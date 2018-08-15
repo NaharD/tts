@@ -22,14 +22,14 @@
 
 Тепер якщо ти перейдеш за цим посиланням, то почуєш озвучений текст.
 
-[http://localhost:8088?text=крута українська озвучка](http://localhost:8088?text=крута українська озвучка)
+http://localhost:8080?text=крута%20українська%20озвучка
 
 Без задання профілю, голос буде від Анатоля (`anatol`), щоб озвучити текст голосом від Наталки, користуйся параметром `voice`
 
-http://localhost:8088?text=крута українська озвучка&voice=natalia
+http://localhost:8080?text=крута%20українська%20озвучка&voice=natalia
 
 Якщо озвучений файл для завантаження треба відповідно назвати, використовуй параметр `name`
 
-http://localhost:8088?text=крута українська озвучка&voice=anatol&name=ukr_audio
+http://localhost:8080?text=крута%20українська%20озвучка&voice=anatol&name=ukr_audio
 
 Проект базується на https://github.com/Olga-Yakovleva/RHVoice
