@@ -1,24 +1,8 @@
-# Встановлення
+# Встановлення та використання
 
-Створюємо теку в котру склонуємо цей проект
+Запускаємо контейнер. Перший раз займе трохи часу.
 
-`mkdir tts`
-
-Перейдемо в неї
-
-`cd tts`
-
-Клонуємо проект до себе.
-
-`git clone https://github.com/NaharD/tts.git .`
-
-Створюємо докер образ. Займає трохи часу.
-
-`docker build -t tts .`
-
-Запускаємо контейнер на базі щойно створеного образу.
-
-`docker run -itdp 8080:8080 --name tts tts`
+`docker run -itdp 8080:8080 --name tts nagard/tts`
 
 Тепер якщо ти перейдеш за цим посиланням, то почуєш озвучений текст.
 
@@ -31,5 +15,16 @@ http://localhost:8080?text=крута+українська+озвучка&voice=
 Якщо озвучений файл для завантаження треба відповідно назвати, використовуй параметр `name`
 
 http://localhost:8080?text=крута+українська+озвучка&voice=anatol&name=ukr_audio
+
+#### Через docker-compose
+
+```yaml
+version: '2'
+services:
+    tts:
+        image: nagard/tts
+        ports:
+          - "8088:8080"
+```
 
 Проект базується на https://github.com/Olga-Yakovleva/RHVoice
