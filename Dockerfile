@@ -37,6 +37,7 @@ RUN apt-get purge -y uuid-dev
 RUN apt-get autoremove -y
 
 ADD ./www/ /var/www/html/
+ADD ./voice/dicts /usr/local/etc/RHVoice/dicts/
 
 WORKDIR /var/www/html
 
