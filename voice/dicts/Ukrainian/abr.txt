@@ -1,10 +1,15 @@
-﻿
+﻿apk/i
+it/i
 nrcu/i
 nvda/i
 usb/i
 ussd/i
+wba/i
+атб/i
+атп/i
 вру/i
 гпу/i
+єбрр/i
 зсу/i
 кву/i
 кпу/i
