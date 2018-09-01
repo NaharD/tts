@@ -16,15 +16,17 @@ class Voice
 	public $text;
 	public $voice;
 	public $name;
+	public $scale;
 	private $path;
 	
-	public function __construct($text, $voice=null, $name=null)
+	public function __construct($text, $voice=null, $name=null, $scale=null)
 	{
 		$this->delOldFiles();
 		
 		$this->text = urldecode($text);
 		$this->voice = $voice ?: 'anatol';
 		$this->name = $name ?: uniqid('audio_', true);
+		$this->scale = is_numeric($scale) ? $scale : 1;
 		$this->path = getcwd();
 	}
 	
@@ -39,7 +41,7 @@ class Voice
 		$inFile = $this->getInFile();
 		$outFile = $this->getOutFile();
 		
-		exec("echo {$this->text} | RHVoice-test -p $this->voice -o {$inFile}; lame {$inFile} {$outFile}; rm {$inFile}");
+		exec("echo {$this->text} | RHVoice-test -p {$this->voice} -o {$inFile}; lame --scale {$this->scale} {$inFile} {$outFile}; rm {$inFile}");
 		
 		return $this;
 	}
