@@ -2,7 +2,7 @@
 
 Запускаємо контейнер.
 
-`docker run -itdp 8080:8080 --name tts nagard/tts`
+`docker run --rm -itdp 8080:8080 --name tts nagard/tts`
 
 Тепер якщо ти перейдеш за цим посиланням, то почуєш озвучений текст.
 
