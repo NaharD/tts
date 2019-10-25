@@ -51,10 +51,11 @@ class Voice
 	 */
 	public function streamVoice():self
 	{
-		header('Content-type: audio/mpeg, audio/wav');
-		header("Content-Disposition: filename={$this->getOutFileName()}");
-		readfile($this->getOutFile());
+		header("Content-type: {$this->getOutFileMime()}");
+		header("Content-Disposition: inline; filename={$this->getOutFileName()}");
+		header("Content-Length: {$this->getOutFileSize()}");
 		
+		readfile($this->getOutFile());
 		return $this;
 	}
 	
@@ -91,6 +92,16 @@ class Voice
 		return $this->createFileName(self::EXT_MP3);
 	}
 	
+    public function getOutFileSize():int
+    {
+        return (int) filesize($this->getOutFile());
+    }
+
+    public function getOutFileMime():string
+    {
+        return mime_content_type($this->getOutFileName());
+    }
+
 	public function createFileName($ext):string
 	{
 		return $this->name . $ext;
